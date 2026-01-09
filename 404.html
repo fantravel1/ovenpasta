@@ -1,0 +1,37 @@
+---
+layout: default
+title: Page Not Found
+description: "Oops! The page you're looking for doesn't exist."
+permalink: /404.html
+---
+
+<section class="py-20 md:py-32">
+  <div class="container-narrow text-center">
+    <div class="text-8xl mb-6">🍝</div>
+    <h1 class="text-4xl md:text-5xl font-display font-bold text-warm-900 mb-4">
+      404 - Page Not Found
+    </h1>
+    <p class="text-xl text-warm-600 mb-8 max-w-md mx-auto">
+      Looks like this pasta got lost in the oven. The page you're looking for doesn't exist.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="{{ '/' | relative_url }}" class="btn-primary px-6 py-3">
+        Go Home
+      </a>
+      <a href="{{ '/dishes/' | relative_url }}" class="btn-outline px-6 py-3">
+        Browse Dishes
+      </a>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-warm-200">
+      <p class="text-warm-500 mb-4">Looking for something specific?</p>
+      <div class="flex flex-wrap justify-center gap-2">
+        <a href="{{ '/dishes/italian/lasagna-bolognese/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Lasagna Bolognese</a>
+        <a href="{{ '/dishes/american/southern-mac-cheese/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Mac & Cheese</a>
+        <a href="{{ '/dishes/greek/pastitsio/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Pastitsio</a>
+        <a href="{{ '/techniques/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Techniques</a>
+      </div>
+    </div>
+  </div>
+</section>

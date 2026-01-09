@@ -1,0 +1,52 @@
+---
+layout: default
+title: Quick Answers
+description: "Get instant answers to your baked pasta questions. No life stories, just the information you need."
+permalink: /quick/
+---
+
+<section class="py-12 md:py-16 bg-gradient-to-br from-cheese-50 to-tomato-50">
+  <div class="container-wide">
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-2 bg-cheese-100 rounded-full px-4 py-2 text-cheese-700 text-sm font-ui font-medium mb-4">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
+        Quick Answers
+      </div>
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-warm-900 mb-4">
+        Got a Question?
+      </h1>
+      <p class="text-xl text-warm-600 max-w-2xl mx-auto">
+        No scrolling through life stories. Just clear, expert-backed answers to your baked pasta questions.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-12 md:py-16">
+  <div class="container-narrow">
+    <div class="space-y-4">
+      {% assign sorted_quick = site.quick | sort: 'title' %}
+      {% for qa in sorted_quick %}
+      <a href="{{ qa.url | relative_url }}" class="block group p-6 rounded-xl bg-white border border-warm-200 hover:border-tomato-300 hover:shadow-md transition-all">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="font-display font-semibold text-lg text-warm-900 group-hover:text-tomato-600 transition-colors">
+              {{ qa.question | default: qa.title }}
+            </h2>
+            <p class="mt-2 text-warm-600 line-clamp-2">
+              {{ qa.quick_answer | truncatewords: 25 }}
+            </p>
+          </div>
+          <svg class="w-5 h-5 text-warm-400 group-hover:text-tomato-600 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      {% endfor %}
+
+      {% if site.quick.size == 0 %}
+      <div class="text-center py-12">
+        <p class="text-warm-500">Quick answers coming soon!</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

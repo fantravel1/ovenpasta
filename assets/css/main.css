@@ -1,0 +1,350 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+@layer base {
+  html {
+    @apply scroll-smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-warm-50 text-warm-800 font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold text-warm-900;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+
+  a {
+    @apply text-tomato-600 hover:text-tomato-700 transition-colors;
+  }
+
+  /* Better focus styles for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-tomato-500;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Container */
+  .container-narrow {
+    @apply max-w-3xl mx-auto px-4 sm:px-6;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-ui font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-tomato-600 text-white hover:bg-tomato-700 active:bg-tomato-800;
+  }
+
+  .btn-secondary {
+    @apply btn bg-cheese-400 text-warm-900 hover:bg-cheese-500 active:bg-cheese-600;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-tomato-600 text-tomato-600 hover:bg-tomato-50 active:bg-tomato-100;
+  }
+
+  .btn-ghost {
+    @apply btn text-warm-600 hover:bg-warm-100 active:bg-warm-200;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-warm-200 overflow-hidden transition-shadow hover:shadow-md;
+  }
+
+  .card-elevated {
+    @apply card shadow-md hover:shadow-lg;
+  }
+
+  /* Dish Card - Note: add 'group' class in HTML for hover effects */
+  .dish-card {
+    @apply card cursor-pointer;
+  }
+
+  .dish-card-image {
+    @apply aspect-[4/3] overflow-hidden;
+  }
+
+  .dish-card-image img {
+    @apply w-full h-full object-cover transition-transform duration-300;
+  }
+
+  .dish-card:hover .dish-card-image img {
+    @apply scale-105;
+  }
+
+  .dish-card-content {
+    @apply p-4 space-y-2;
+  }
+
+  /* Tags/Badges */
+  .tag {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-ui font-medium;
+  }
+
+  .tag-region {
+    @apply tag bg-tomato-100 text-tomato-700;
+  }
+
+  .tag-difficulty {
+    @apply tag bg-cheese-100 text-cheese-800;
+  }
+
+  .tag-vegetarian {
+    @apply tag bg-green-100 text-green-700;
+  }
+
+  .tag-time {
+    @apply tag bg-warm-100 text-warm-700;
+  }
+
+  /* Quick Answer Box */
+  .quick-answer {
+    @apply bg-cheese-50 border-l-4 border-cheese-400 rounded-r-xl p-4 my-6;
+  }
+
+  .quick-answer-title {
+    @apply font-display text-lg font-bold text-warm-900 mb-2 flex items-center gap-2;
+  }
+
+  .quick-answer-content {
+    @apply text-warm-700;
+  }
+
+  .quick-answer-content strong {
+    @apply text-warm-900;
+  }
+
+  /* Chef Secret Callout */
+  .chef-secret {
+    @apply bg-gradient-to-r from-tomato-50 to-cheese-50 border border-tomato-200 rounded-xl p-4 my-6;
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply font-ui text-sm font-medium text-warm-600 hover:text-tomato-600 transition-colors;
+  }
+
+  .nav-link-active {
+    @apply nav-link text-tomato-600;
+  }
+
+  /* Mobile Nav */
+  .mobile-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-white border-t border-warm-200 z-50 md:hidden;
+  }
+
+  .mobile-nav-item {
+    @apply flex flex-col items-center justify-center py-2 px-3 text-warm-500 hover:text-tomato-600;
+  }
+
+  .mobile-nav-item-active {
+    @apply mobile-nav-item text-tomato-600;
+  }
+
+  /* Recipe Meta */
+  .recipe-meta {
+    @apply flex flex-wrap gap-4 text-sm text-warm-600;
+  }
+
+  .recipe-meta-item {
+    @apply flex items-center gap-1.5;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    @apply flex items-center flex-wrap gap-1.5 text-sm font-ui text-warm-500;
+  }
+
+  .breadcrumbs a {
+    @apply text-warm-500 hover:text-tomato-600;
+  }
+
+  .breadcrumbs-separator {
+    @apply text-warm-300;
+  }
+
+  /* Rating Stars */
+  .rating-stars {
+    @apply flex items-center gap-0.5 text-cheese-500;
+  }
+
+  /* Print Button */
+  .print-button {
+    @apply btn-ghost text-sm;
+  }
+
+  /* Table of Contents */
+  .toc {
+    @apply bg-warm-100 rounded-xl p-4 my-6;
+  }
+
+  .toc-title {
+    @apply font-ui font-semibold text-warm-900 mb-3;
+  }
+
+  .toc-list {
+    @apply space-y-2 text-sm;
+  }
+
+  .toc-link {
+    @apply text-warm-600 hover:text-tomato-600;
+  }
+
+  /* Recipe Instructions */
+  .recipe-step {
+    @apply flex gap-4 mb-6;
+  }
+
+  .recipe-step-number {
+    @apply flex-shrink-0 w-8 h-8 rounded-full bg-tomato-600 text-white font-ui font-bold flex items-center justify-center text-sm;
+  }
+
+  .recipe-step-content {
+    @apply flex-1 pt-1;
+  }
+
+  /* Ingredient List */
+  .ingredient-list {
+    @apply space-y-2;
+  }
+
+  .ingredient-item {
+    @apply flex items-start gap-3 py-2 border-b border-warm-100 last:border-0;
+  }
+
+  .ingredient-checkbox {
+    @apply mt-1 h-4 w-4 rounded border-warm-300 text-tomato-600 focus:ring-tomato-500;
+  }
+
+  /* Hero Section */
+  .hero {
+    @apply relative overflow-hidden;
+  }
+
+  .hero-gradient {
+    @apply absolute inset-0 bg-gradient-to-b from-warm-900/60 via-warm-900/40 to-warm-900/80;
+  }
+
+  /* Section Headers */
+  .section-header {
+    @apply mb-8;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl font-display font-bold text-warm-900;
+  }
+
+  .section-subtitle {
+    @apply mt-2 text-warm-600;
+  }
+
+  /* Grid Layouts */
+  .dish-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+  }
+
+  .technique-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  /* Footer */
+  .footer {
+    @apply bg-warm-900 text-warm-300;
+  }
+
+  .footer-link {
+    @apply text-warm-400 hover:text-white transition-colors;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  /* Line Clamp */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Text Balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Safe area padding for mobile nav */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .recipe-step-number {
+    background: #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}

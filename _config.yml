@@ -1,0 +1,142 @@
+# OvenPasta.com - Jekyll Configuration
+# The World's Most Comprehensive Oven-Baked Pasta Resource
+
+# Site Settings
+title: OvenPasta
+tagline: "The World Bakes Pasta"
+description: "The definitive global destination for oven-baked pasta - from Sicilian timballo to Finnish makaronilaatikko, from Marcella Hazan's Bolognese secrets to Southern soul food mac and cheese."
+url: "https://fantravel1.github.io"
+baseurl: "/ovenpasta"
+lang: en
+
+# Author
+author:
+  name: OvenPasta Team
+  email: hello@ovenpasta.com
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Sass/SCSS
+sass:
+  style: compressed
+  sass_dir: _sass
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  dishes:
+    output: true
+    permalink: /dishes/:path/
+  techniques:
+    output: true
+    permalink: /techniques/:path/
+  ingredients:
+    output: true
+    permalink: /ingredients/:path/
+  chefs:
+    output: true
+    permalink: /chefs/:path/
+  guides:
+    output: true
+    permalink: /guides/:path/
+  quick:
+    output: true
+    permalink: /quick/:path/
+  regions:
+    output: true
+    permalink: /regions/:path/
+
+# Default Front Matter
+defaults:
+  - scope:
+      path: ""
+      type: "dishes"
+    values:
+      layout: "dish"
+      sitemap: true
+  - scope:
+      path: ""
+      type: "techniques"
+    values:
+      layout: "technique"
+      sitemap: true
+  - scope:
+      path: ""
+      type: "ingredients"
+    values:
+      layout: "ingredient"
+      sitemap: true
+  - scope:
+      path: ""
+      type: "chefs"
+    values:
+      layout: "chef"
+      sitemap: true
+  - scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: "guide"
+      sitemap: true
+  - scope:
+      path: ""
+      type: "quick"
+    values:
+      layout: "quick-answer"
+      sitemap: true
+  - scope:
+      path: ""
+      type: "regions"
+    values:
+      layout: "region"
+      sitemap: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      sitemap: true
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - postcss.config.js
+  - README.md
+  - .git
+  - .gitignore
+  - scripts/
+  - "*.pdf"
+
+# Include in build
+include:
+  - _pages
+
+# Pagination (if needed later)
+# paginate: 12
+# paginate_path: "/blog/page:num/"
+
+# Feed settings
+feed:
+  path: feed.xml
+
+# Compress HTML
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false

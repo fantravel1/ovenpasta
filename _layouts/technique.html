@@ -1,0 +1,111 @@
+---
+layout: default
+---
+
+<article class="pb-20 md:pb-8" itemscope itemtype="https://schema.org/HowTo">
+  <!-- Header -->
+  <header class="bg-warm-900 text-white py-12 md:py-16">
+    <div class="container-wide">
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs text-warm-400 mb-6" aria-label="Breadcrumb">
+        <a href="{{ '/' | relative_url }}" class="hover:text-white">Home</a>
+        <span class="breadcrumbs-separator">/</span>
+        <a href="{{ '/techniques/' | relative_url }}" class="hover:text-white">Techniques</a>
+        {% if page.category %}
+        <span class="breadcrumbs-separator">/</span>
+        <a href="{{ '/techniques/' | append: page.category | append: '/' | relative_url }}" class="hover:text-white capitalize">{{ page.category }}</a>
+        {% endif %}
+        <span class="breadcrumbs-separator">/</span>
+        <span class="text-white">{{ page.title }}</span>
+      </nav>
+
+      <!-- Category Tag -->
+      {% if page.category %}
+      <span class="tag bg-tomato-600 text-white mb-4">{{ page.category | capitalize }}</span>
+      {% endif %}
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-balance" itemprop="name">
+        {{ page.title }}
+      </h1>
+
+      {% if page.description %}
+      <p class="mt-4 text-lg text-warm-300 max-w-2xl" itemprop="description">
+        {{ page.description }}
+      </p>
+      {% endif %}
+
+      <!-- Meta -->
+      <div class="recipe-meta mt-6 text-warm-400">
+        {% if page.time %}
+        <div class="recipe-meta-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span><meta itemprop="totalTime" content="PT{{ page.time }}M">{{ page.time }} minutes</span>
+        </div>
+        {% endif %}
+        {% if page.difficulty %}
+        <div class="recipe-meta-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          <span class="capitalize">{{ page.difficulty }}</span>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <div class="container-wide py-10 md:py-12">
+    <div class="lg:grid lg:grid-cols-3 lg:gap-12">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-2">
+        {% if page.hero_image %}
+        <div class="aspect-video rounded-xl overflow-hidden mb-8">
+          <img src="{{ page.hero_image | relative_url }}" alt="{{ page.title }}" class="w-full h-full object-cover" itemprop="image">
+        </div>
+        {% endif %}
+
+        <div class="prose prose-warm max-w-none">
+          {{ content }}
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-1 mt-8 lg:mt-0">
+        <!-- Dishes Using This Technique -->
+        {% if page.dishes_using_technique %}
+        <div class="card p-6 mb-6">
+          <h3 class="font-display font-bold text-xl text-warm-900 mb-4">Recipes Using This Technique</h3>
+          <div class="space-y-3">
+            {% for dish_slug in page.dishes_using_technique limit:6 %}
+            {% assign related = site.dishes | where: "slug", dish_slug | first %}
+            {% if related %}
+            <a href="{{ related.url | relative_url }}" class="block group">
+              <p class="font-medium text-warm-900 group-hover:text-tomato-600 transition-colors">{{ related.title }}</p>
+              <p class="text-sm text-warm-500">{{ related.region | replace: '-', ' ' | capitalize }}</p>
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Related Techniques -->
+        {% if page.related_techniques %}
+        <div class="card p-6">
+          <h3 class="font-display font-bold text-xl text-warm-900 mb-4">Related Techniques</h3>
+          <div class="space-y-3">
+            {% for tech_slug in page.related_techniques limit:5 %}
+            {% assign related = site.techniques | where: "slug", tech_slug | first %}
+            {% if related %}
+            <a href="{{ related.url | relative_url }}" class="block group">
+              <p class="font-medium text-warm-900 group-hover:text-tomato-600 transition-colors">{{ related.title }}</p>
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+</article>

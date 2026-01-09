@@ -1,0 +1,25 @@
+{
+  "name": "ovenpasta",
+  "version": "1.0.0",
+  "description": "The World's Most Comprehensive Oven-Baked Pasta Resource",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/output.css --watch",
+    "build:css": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/output.css --minify",
+    "build": "npm run build:css"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32"
+  },
+  "keywords": [
+    "pasta",
+    "recipes",
+    "cooking",
+    "baked-pasta",
+    "lasagna",
+    "mac-and-cheese"
+  ],
+  "author": "OvenPasta Team",
+  "license": "MIT"
+}
