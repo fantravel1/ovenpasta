@@ -1,0 +1,71 @@
+# Main navigation
+main:
+  - title: "Dishes"
+    url: /dishes/
+  - title: "Techniques"
+    url: /techniques/
+  - title: "Quick Answers"
+    url: /quick/
+  - title: "About"
+    url: /about/
+
+# Footer navigation
+footer:
+  - title: "About"
+    url: /about/
+  - title: "Contact"
+    url: /contact/
+  - title: "Privacy"
+    url: /privacy/
+
+# Region navigation
+regions:
+  - title: "Italian"
+    url: /dishes/italian/
+    count: 22
+  - title: "American"
+    url: /dishes/american/
+    count: 12
+  - title: "Greek"
+    url: /dishes/greek/
+    count: 5
+  - title: "Middle Eastern"
+    url: /dishes/middle-eastern/
+    count: 5
+  - title: "Nordic"
+    url: /dishes/nordic/
+    count: 2
+  - title: "Asian"
+    url: /dishes/asian/
+    count: 1
+  - title: "British"
+    url: /dishes/british/
+    count: 1
+  - title: "Korean"
+    url: /dishes/korean/
+    count: 1
+  - title: "Filipino"
+    url: /dishes/filipino/
+    count: 1
+  - title: "Brazilian"
+    url: /dishes/brazilian/
+    count: 1
+  - title: "Latin"
+    url: /dishes/latin/
+    count: 1
+
+# Popular dishes for homepage
+popular_dishes:
+  - lasagna-bolognese
+  - southern-mac-cheese
+  - pastitsio
+  - baked-ziti
+  - macarona-bechamel-egyptian
+  - timballo-anelletti
+
+# Technique categories
+technique_categories:
+  - title: "Sauces"
+    url: /techniques/sauces/
+  - title: "Fundamentals"
+    url: /techniques/fundamentals/
