@@ -1,0 +1,91 @@
+---
+layout: default
+---
+
+<article class="pb-20 md:pb-8">
+  <!-- Quick Answer Header -->
+  <header class="bg-gradient-to-br from-cheese-50 to-tomato-50 py-12 md:py-16">
+    <div class="container-narrow">
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs mb-6" aria-label="Breadcrumb">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <span class="breadcrumbs-separator">/</span>
+        <a href="{{ '/quick/' | relative_url }}">Quick Answers</a>
+        <span class="breadcrumbs-separator">/</span>
+        <span class="text-warm-700">{{ page.title }}</span>
+      </nav>
+
+      <div class="flex items-center gap-2 text-cheese-600 font-ui font-medium text-sm mb-4">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
+        Quick Answer
+      </div>
+
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-warm-900 text-balance">
+        {{ page.question | default: page.title }}
+      </h1>
+    </div>
+  </header>
+
+  <!-- Quick Answer Box -->
+  <div class="container-narrow -mt-6">
+    <div class="quick-answer bg-white shadow-lg border-l-4 border-cheese-500">
+      <p class="text-lg text-warm-800 leading-relaxed">
+        <strong class="text-warm-900">{{ page.quick_answer }}</strong>
+      </p>
+    </div>
+  </div>
+
+  <!-- Detailed Content -->
+  <div class="container-narrow py-10 md:py-12">
+    <div class="prose prose-warm max-w-none">
+      {{ content }}
+    </div>
+
+    <!-- Related Questions -->
+    {% if page.related_quick_answers %}
+    <div class="mt-12 pt-8 border-t border-warm-200">
+      <h2 class="font-display font-bold text-xl text-warm-900 mb-6">Related Questions</h2>
+      <div class="space-y-4">
+        {% for qa_slug in page.related_quick_answers limit:5 %}
+        {% assign related = site.quick | where: "slug", qa_slug | first %}
+        {% if related %}
+        <a href="{{ related.url | relative_url }}" class="block group p-4 rounded-lg bg-warm-50 hover:bg-warm-100 transition-colors">
+          <div class="flex items-center justify-between">
+            <p class="font-medium text-warm-900 group-hover:text-tomato-600 transition-colors">{{ related.question | default: related.title }}</p>
+            <svg class="w-5 h-5 text-warm-400 group-hover:text-tomato-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Related Dishes -->
+    {% if page.related_dishes %}
+    <div class="mt-10">
+      <h2 class="font-display font-bold text-xl text-warm-900 mb-6">Try These Recipes</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {% for dish_slug in page.related_dishes limit:4 %}
+        {% assign related = site.dishes | where: "slug", dish_slug | first %}
+        {% if related %}
+        <a href="{{ related.url | relative_url }}" class="dish-card">
+          <div class="dish-card-image">
+            {% if related.hero_image %}
+            <img src="{{ related.hero_image | relative_url }}" alt="{{ related.title }}" loading="lazy">
+            {% else %}
+            <div class="w-full h-full bg-gradient-to-br from-tomato-200 to-cheese-200"></div>
+            {% endif %}
+          </div>
+          <div class="dish-card-content">
+            <h3 class="font-display font-semibold text-warm-900 group-hover:text-tomato-600 transition-colors">{{ related.title }}</h3>
+            <p class="text-sm text-warm-600">{{ related.region | replace: '-', ' ' | capitalize }}</p>
+          </div>
+        </a>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</article>

@@ -1,0 +1,61 @@
+{% if page.layout == 'dish' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "{{ page.title }}",
+  "description": "{{ page.description | default: page.excerpt | strip_html | truncatewords: 50 }}",
+  "image": [
+    "{{ page.hero_image | default: '/assets/images/og-default.jpg' | absolute_url }}"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "{{ site.title }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ '/assets/images/logo.png' | absolute_url }}"
+    }
+  },
+  "datePublished": "{{ page.date_published | default: page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.date_modified | default: page.date | date_to_xmlschema }}",
+  {% if page.prep_time %}"prepTime": "PT{{ page.prep_time }}M",{% endif %}
+  {% if page.cook_time %}"cookTime": "PT{{ page.cook_time }}M",{% endif %}
+  {% if page.total_time %}"totalTime": "PT{{ page.total_time }}M",{% elsif page.prep_time and page.cook_time %}"totalTime": "PT{{ page.prep_time | plus: page.cook_time }}M",{% endif %}
+  {% if page.servings %}"recipeYield": "{{ page.servings }} servings",{% endif %}
+  "recipeCategory": "Main Course",
+  "recipeCuisine": "{{ page.country | default: 'International' | capitalize }}",
+  {% if page.keywords %}"keywords": "{{ page.keywords | join: ', ' }}",{% endif %}
+  {% if page.ingredients %}
+  "recipeIngredient": [
+    {% for ingredient in page.ingredients %}"{{ ingredient }}"{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  {% endif %}
+  {% if page.instructions %}
+  "recipeInstructions": [
+    {% for step in page.instructions %}
+    {
+      "@type": "HowToStep",
+      "text": "{{ step }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  {% endif %}
+  {% if page.rating %}
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ page.rating }}",
+    "ratingCount": "{{ page.rating_count | default: 100 }}"
+  },
+  {% endif %}
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  }
+}
+</script>
+{% endif %}

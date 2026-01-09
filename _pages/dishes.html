@@ -1,0 +1,44 @@
+---
+layout: default
+title: All Dishes
+description: "Explore our complete collection of oven-baked pasta dishes from around the world. From Italian lasagna to American mac and cheese."
+permalink: /dishes/
+---
+
+<section class="py-12 md:py-16 bg-gradient-to-b from-warm-100 to-white">
+  <div class="container-wide">
+    <div class="text-center mb-10">
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-warm-900 mb-4">
+        Explore All Dishes
+      </h1>
+      <p class="text-xl text-warm-600 max-w-2xl mx-auto">
+        Discover oven-baked pasta dishes from every corner of the globe, each with authentic recipes and expert techniques.
+      </p>
+    </div>
+
+    <!-- Filter Pills -->
+    <div class="flex flex-wrap justify-center gap-2 mb-10">
+      <a href="{{ '/dishes/' | relative_url }}" class="tag bg-tomato-600 text-white">All</a>
+      <a href="{{ '/dishes/italian/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">🇮🇹 Italian</a>
+      <a href="{{ '/dishes/american/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">🇺🇸 American</a>
+      <a href="{{ '/dishes/greek/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">🇬🇷 Greek</a>
+    </div>
+  </div>
+</section>
+
+<section class="py-12 md:py-16">
+  <div class="container-wide">
+    <div class="dish-grid">
+      {% assign sorted_dishes = site.dishes | sort: 'title' %}
+      {% for dish in sorted_dishes %}
+        {% include components/dish-card.html dish=dish %}
+      {% endfor %}
+    </div>
+
+    {% if site.dishes.size == 0 %}
+    <div class="text-center py-12">
+      <p class="text-warm-500">Dishes coming soon! Check back for our growing collection.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>

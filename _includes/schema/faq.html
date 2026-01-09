@@ -1,0 +1,18 @@
+{% if page.layout == 'quick-answer' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "{{ page.question | default: page.title }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ page.quick_answer | strip_html }}"
+      }
+    }
+  ]
+}
+</script>
+{% endif %}
