@@ -17,7 +17,49 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Primary - Warm Tomato Reds
+        // Modern neutral palette
+        slate: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
+          950: '#020617',
+        },
+        // Refined warm accent
+        terracotta: {
+          50: '#fdf8f6',
+          100: '#f9ebe5',
+          200: '#f5d5c8',
+          300: '#e9b8a3',
+          400: '#db9177',
+          500: '#c96f4f',
+          600: '#b85a3a',
+          700: '#9a4830',
+          800: '#7d3d2b',
+          900: '#673527',
+          950: '#381a12',
+        },
+        // Elegant gold accent
+        gold: {
+          50: '#fefdf8',
+          100: '#fef9e7',
+          200: '#fdf0c3',
+          300: '#fbe38f',
+          400: '#f8d04a',
+          500: '#f0b429',
+          600: '#d4950f',
+          700: '#a87008',
+          800: '#8a5a0d',
+          900: '#754a11',
+          950: '#442705',
+        },
+        // Keep original for compatibility
         tomato: {
           50: '#fef2f2',
           100: '#fee2e2',
@@ -30,7 +72,6 @@ module.exports = {
           800: '#991b1b',
           900: '#7f1d1d',
         },
-        // Secondary - Golden Cheese
         cheese: {
           50: '#fffbeb',
           100: '#fef3c7',
@@ -43,7 +84,6 @@ module.exports = {
           800: '#92400e',
           900: '#78350f',
         },
-        // Neutral - Warm Grays
         warm: {
           50: '#fafaf9',
           100: '#f5f5f4',
@@ -58,33 +98,22 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-        body: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-        ui: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
-        mono: ['ui-monospace', 'SFMono-Regular', '"SF Mono"', 'Menlo', 'monospace'],
+        display: ['"DM Serif Display"', 'Georgia', 'Cambria', 'serif'],
+        body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        ui: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            maxWidth: '65ch',
-            color: '#44403c',
-            a: {
-              color: '#dc2626',
-              '&:hover': {
-                color: '#b91c1c',
-              },
-            },
-            h1: {
-              fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif',
-            },
-            h2: {
-              fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif',
-            },
-            h3: {
-              fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif',
-            },
-          },
-        },
+      fontSize: {
+        '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
+      },
+      boxShadow: {
+        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+        'soft-lg': '0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 2px 10px -2px rgba(0, 0, 0, 0.04)',
+        'inner-soft': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.02)',
+        'glow': '0 0 20px rgba(201, 111, 79, 0.15)',
+      },
+      borderRadius: {
+        '4xl': '2rem',
       },
       spacing: {
         '18': '4.5rem',
@@ -92,8 +121,9 @@ module.exports = {
         '128': '32rem',
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.3s ease-out',
+        'fade-in': 'fadeIn 0.5s ease-out',
+        'slide-up': 'slideUp 0.4s ease-out',
+        'scale-in': 'scaleIn 0.3s ease-out',
       },
       keyframes: {
         fadeIn: {
@@ -101,9 +131,16 @@ module.exports = {
           '100%': { opacity: '1' },
         },
         slideUp: {
-          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
+        scaleIn: {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+      },
+      backdropBlur: {
+        xs: '2px',
       },
     },
   },

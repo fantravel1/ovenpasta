@@ -5,13 +5,13 @@ description: "Master the essential techniques for perfect baked pasta every time
 permalink: /techniques/
 ---
 
-<section class="py-12 md:py-16 bg-gradient-to-b from-warm-100 to-white">
+<section class="py-16 md:py-24 bg-gradient-to-b from-slate-100 to-slate-50">
   <div class="container-wide">
-    <div class="text-center mb-10">
-      <h1 class="text-4xl md:text-5xl font-display font-bold text-warm-900 mb-4">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-display text-slate-900 mb-6">
         Cooking Techniques
       </h1>
-      <p class="text-xl text-warm-600 max-w-2xl mx-auto">
+      <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
         Master the fundamental skills that make the difference between good baked pasta and great baked pasta.
       </p>
     </div>
@@ -23,18 +23,18 @@ permalink: /techniques/
 
     <!-- Sauces Section -->
     <div class="mb-16">
-      <h2 class="text-2xl md:text-3xl font-display font-bold text-warm-900 mb-6">
+      <h2 class="text-2xl md:text-3xl font-display text-slate-900 mb-8">
         Sauces
       </h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="technique-grid">
         {% for technique in site.techniques %}
           {% if technique.category == 'sauces' %}
-          <a href="{{ technique.url | relative_url }}" class="card p-6 hover:shadow-lg transition-shadow">
-            <h3 class="text-xl font-display font-bold text-warm-900 mb-2">{{ technique.title }}</h3>
-            <p class="text-warm-600 mb-4">{{ technique.description | truncate: 120 }}</p>
-            <div class="flex items-center text-sm text-warm-500">
-              <span class="mr-4">{{ technique.difficulty | capitalize }}</span>
-              <span>{{ technique.time }}</span>
+          <a href="{{ technique.url | relative_url }}" class="card p-6 group">
+            <h3 class="text-xl font-display text-slate-900 mb-3 group-hover:text-terracotta-600 transition-colors">{{ technique.title }}</h3>
+            <p class="text-slate-600 mb-4 line-clamp-3">{{ technique.description | truncate: 120 }}</p>
+            <div class="flex items-center gap-4 text-sm">
+              <span class="tag-difficulty">{{ technique.difficulty | capitalize }}</span>
+              <span class="tag-time">{{ technique.time }}</span>
             </div>
           </a>
           {% endif %}
@@ -44,18 +44,18 @@ permalink: /techniques/
 
     <!-- Fundamentals Section -->
     <div class="mb-16">
-      <h2 class="text-2xl md:text-3xl font-display font-bold text-warm-900 mb-6">
+      <h2 class="text-2xl md:text-3xl font-display text-slate-900 mb-8">
         Fundamentals
       </h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="technique-grid">
         {% for technique in site.techniques %}
           {% if technique.category == 'fundamentals' %}
-          <a href="{{ technique.url | relative_url }}" class="card p-6 hover:shadow-lg transition-shadow">
-            <h3 class="text-xl font-display font-bold text-warm-900 mb-2">{{ technique.title }}</h3>
-            <p class="text-warm-600 mb-4">{{ technique.description | truncate: 120 }}</p>
-            <div class="flex items-center text-sm text-warm-500">
-              <span class="mr-4">{{ technique.difficulty | capitalize }}</span>
-              <span>{{ technique.time }}</span>
+          <a href="{{ technique.url | relative_url }}" class="card p-6 group">
+            <h3 class="text-xl font-display text-slate-900 mb-3 group-hover:text-terracotta-600 transition-colors">{{ technique.title }}</h3>
+            <p class="text-slate-600 mb-4 line-clamp-3">{{ technique.description | truncate: 120 }}</p>
+            <div class="flex items-center gap-4 text-sm">
+              <span class="tag-difficulty">{{ technique.difficulty | capitalize }}</span>
+              <span class="tag-time">{{ technique.time }}</span>
             </div>
           </a>
           {% endif %}
@@ -64,57 +64,57 @@ permalink: /techniques/
     </div>
 
     <!-- Universal Tips -->
-    <div class="bg-cheese-50 rounded-2xl p-8 md:p-12">
-      <h2 class="text-2xl md:text-3xl font-display font-bold text-warm-900 mb-6">
+    <div class="bg-gradient-to-br from-gold-50 to-white border border-gold-200/60 rounded-2xl p-8 md:p-12">
+      <h2 class="text-2xl md:text-3xl font-display text-slate-900 mb-8">
         Universal Baked Pasta Rules
       </h2>
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 gap-10">
         <div>
-          <h3 class="font-bold text-warm-800 mb-3">The Golden Rules</h3>
-          <ul class="space-y-2 text-warm-700">
+          <h3 class="font-ui font-semibold text-slate-800 mb-4">The Golden Rules</h3>
+          <ul class="space-y-3 text-slate-600">
             <li class="flex items-start">
-              <span class="text-tomato-500 mr-2">1.</span>
-              <span><strong>Undercook pasta by 2 minutes</strong>—it finishes in the oven</span>
+              <span class="text-terracotta-500 font-semibold mr-3">1.</span>
+              <span><strong class="text-slate-800">Undercook pasta by 2 minutes</strong>—it finishes in the oven</span>
             </li>
             <li class="flex items-start">
-              <span class="text-tomato-500 mr-2">2.</span>
-              <span><strong>Save pasta water</strong>—starchy water binds sauces</span>
+              <span class="text-terracotta-500 font-semibold mr-3">2.</span>
+              <span><strong class="text-slate-800">Save pasta water</strong>—starchy water binds sauces</span>
             </li>
             <li class="flex items-start">
-              <span class="text-tomato-500 mr-2">3.</span>
-              <span><strong>Never add oil to pasta water</strong>—sauce won't adhere</span>
+              <span class="text-terracotta-500 font-semibold mr-3">3.</span>
+              <span><strong class="text-slate-800">Never add oil to pasta water</strong>—sauce won't adhere</span>
             </li>
             <li class="flex items-start">
-              <span class="text-tomato-500 mr-2">4.</span>
-              <span><strong>Layer strategically</strong>—sauce on bottom prevents sticking</span>
+              <span class="text-terracotta-500 font-semibold mr-3">4.</span>
+              <span><strong class="text-slate-800">Layer strategically</strong>—sauce on bottom prevents sticking</span>
             </li>
             <li class="flex items-start">
-              <span class="text-tomato-500 mr-2">5.</span>
-              <span><strong>Rest before cutting</strong>—8-10 minutes minimum</span>
+              <span class="text-terracotta-500 font-semibold mr-3">5.</span>
+              <span><strong class="text-slate-800">Rest before cutting</strong>—8-10 minutes minimum</span>
             </li>
           </ul>
         </div>
         <div>
-          <h3 class="font-bold text-warm-800 mb-3">Make-Ahead Tips</h3>
-          <ul class="space-y-2 text-warm-700">
+          <h3 class="font-ui font-semibold text-slate-800 mb-4">Make-Ahead Tips</h3>
+          <ul class="space-y-3 text-slate-600">
             <li class="flex items-start">
-              <span class="text-cheese-600 mr-2">•</span>
+              <span class="text-gold-600 mr-3">•</span>
               <span>All baked pastas refrigerate 3-5 days</span>
             </li>
             <li class="flex items-start">
-              <span class="text-cheese-600 mr-2">•</span>
+              <span class="text-gold-600 mr-3">•</span>
               <span>Freeze unbaked for best results</span>
             </li>
             <li class="flex items-start">
-              <span class="text-cheese-600 mr-2">•</span>
+              <span class="text-gold-600 mr-3">•</span>
               <span>Add extra sauce when reheating</span>
             </li>
             <li class="flex items-start">
-              <span class="text-cheese-600 mr-2">•</span>
+              <span class="text-gold-600 mr-3">•</span>
               <span>Oven reheating beats microwave</span>
             </li>
             <li class="flex items-start">
-              <span class="text-cheese-600 mr-2">•</span>
+              <span class="text-gold-600 mr-3">•</span>
               <span>Many dishes taste better the next day!</span>
             </li>
           </ul>

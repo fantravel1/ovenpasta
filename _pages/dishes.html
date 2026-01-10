@@ -5,36 +5,36 @@ description: "Explore our complete collection of oven-baked pasta dishes from ar
 permalink: /dishes/
 ---
 
-<section class="py-12 md:py-16 bg-gradient-to-b from-warm-100 to-white">
+<section class="py-16 md:py-24 bg-gradient-to-b from-slate-100 to-slate-50">
   <div class="container-wide">
-    <div class="text-center mb-10">
-      <h1 class="text-4xl md:text-5xl font-display font-bold text-warm-900 mb-4">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-display text-slate-900 mb-6">
         Explore All Dishes
       </h1>
-      <p class="text-xl text-warm-600 max-w-2xl mx-auto">
+      <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
         Discover oven-baked pasta dishes from every corner of the globe, each with authentic recipes and expert techniques.
       </p>
     </div>
 
     <!-- Filter Pills -->
-    <div class="flex flex-wrap justify-center gap-2 mb-10">
-      <a href="{{ '/dishes/' | relative_url }}" class="tag bg-tomato-600 text-white">All (50)</a>
-      <a href="{{ '/dishes/italian/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Italian (22)</a>
-      <a href="{{ '/dishes/american/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">American (12)</a>
-      <a href="{{ '/dishes/greek/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Greek (5)</a>
-      <a href="{{ '/dishes/middle-eastern/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Middle Eastern (5)</a>
-      <a href="{{ '/dishes/nordic/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Nordic (2)</a>
-      <a href="{{ '/dishes/asian/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Asian (1)</a>
-      <a href="{{ '/dishes/british/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">British (1)</a>
-      <a href="{{ '/dishes/korean/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Korean (1)</a>
-      <a href="{{ '/dishes/filipino/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Filipino (1)</a>
-      <a href="{{ '/dishes/brazilian/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Brazilian (1)</a>
-      <a href="{{ '/dishes/latin/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Latin (1)</a>
+    <div class="flex flex-wrap justify-center gap-2 mb-12">
+      <a href="{{ '/dishes/' | relative_url }}" class="tag bg-terracotta-500 text-white hover:bg-terracotta-600">All (50)</a>
+      <a href="{{ '/dishes/italian/' | relative_url }}" class="tag-region">Italian (22)</a>
+      <a href="{{ '/dishes/american/' | relative_url }}" class="tag-region">American (12)</a>
+      <a href="{{ '/dishes/greek/' | relative_url }}" class="tag-region">Greek (5)</a>
+      <a href="{{ '/dishes/middle-eastern/' | relative_url }}" class="tag-region">Middle Eastern (5)</a>
+      <a href="{{ '/dishes/nordic/' | relative_url }}" class="tag-region">Nordic (2)</a>
+      <a href="{{ '/dishes/asian/' | relative_url }}" class="tag-region">Asian (1)</a>
+      <a href="{{ '/dishes/british/' | relative_url }}" class="tag-region">British (1)</a>
+      <a href="{{ '/dishes/korean/' | relative_url }}" class="tag-region">Korean (1)</a>
+      <a href="{{ '/dishes/filipino/' | relative_url }}" class="tag-region">Filipino (1)</a>
+      <a href="{{ '/dishes/brazilian/' | relative_url }}" class="tag-region">Brazilian (1)</a>
+      <a href="{{ '/dishes/latin/' | relative_url }}" class="tag-region">Latin (1)</a>
     </div>
   </div>
 </section>
 
-<section class="py-12 md:py-16">
+<section class="py-16 md:py-20">
   <div class="container-wide">
     <div class="dish-grid">
       {% assign sorted_dishes = site.dishes | sort: 'title' %}
@@ -44,8 +44,8 @@ permalink: /dishes/
     </div>
 
     {% if site.dishes.size == 0 %}
-    <div class="text-center py-12">
-      <p class="text-warm-500">Dishes coming soon! Check back for our growing collection.</p>
+    <div class="text-center py-16">
+      <p class="text-slate-400">Dishes coming soon! Check back for our growing collection.</p>
     </div>
     {% endif %}
   </div>
