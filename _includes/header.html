@@ -1,10 +1,10 @@
-<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-warm-200 no-print">
+<header class="sticky top-0 z-40 glass border-b border-slate-200/60 no-print">
   <div class="container-wide">
     <nav class="flex items-center justify-between h-16" aria-label="Main navigation">
       <!-- Logo -->
-      <a href="{{ '/' | relative_url }}" class="flex items-center gap-2 text-warm-900 hover:text-tomato-600 transition-colors">
+      <a href="{{ '/' | relative_url }}" class="flex items-center gap-2 text-slate-900 hover:text-terracotta-600 transition-colors">
         <span class="text-2xl">🍝</span>
-        <span class="font-display font-bold text-xl">OvenPasta</span>
+        <span class="font-display text-xl">OvenPasta</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -27,16 +27,16 @@
       </div>
 
       <!-- Search & Menu -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2">
         <!-- Search Button -->
-        <button type="button" class="btn-ghost p-2" aria-label="Search" onclick="document.getElementById('search-modal').classList.toggle('hidden')">
+        <button type="button" class="btn-ghost p-2.5 rounded-full" aria-label="Search" onclick="document.getElementById('search-modal').classList.toggle('hidden')">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
         </button>
 
         <!-- Mobile Menu Button -->
-        <button type="button" class="md:hidden btn-ghost p-2" aria-label="Menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <button type="button" class="md:hidden btn-ghost p-2.5 rounded-full" aria-label="Menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
@@ -45,46 +45,46 @@
     </nav>
 
     <!-- Mobile Menu Dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-warm-100">
-      <div class="pt-4 space-y-2">
-        <a href="{{ '/dishes/' | relative_url }}" class="block px-4 py-2 text-warm-700 hover:bg-warm-50 rounded-lg">Dishes</a>
-        <a href="{{ '/techniques/' | relative_url }}" class="block px-4 py-2 text-warm-700 hover:bg-warm-50 rounded-lg">Techniques</a>
-        <a href="{{ '/ingredients/' | relative_url }}" class="block px-4 py-2 text-warm-700 hover:bg-warm-50 rounded-lg">Ingredients</a>
-        <a href="{{ '/regions/' | relative_url }}" class="block px-4 py-2 text-warm-700 hover:bg-warm-50 rounded-lg">Regions</a>
-        <a href="{{ '/quick/' | relative_url }}" class="block px-4 py-2 text-warm-700 hover:bg-warm-50 rounded-lg">Quick Answers</a>
-        <a href="{{ '/about/' | relative_url }}" class="block px-4 py-2 text-warm-700 hover:bg-warm-50 rounded-lg">About</a>
+    <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-slate-100">
+      <div class="pt-4 space-y-1">
+        <a href="{{ '/dishes/' | relative_url }}" class="block px-4 py-2.5 text-slate-700 hover:bg-slate-50 rounded-xl font-ui text-sm">Dishes</a>
+        <a href="{{ '/techniques/' | relative_url }}" class="block px-4 py-2.5 text-slate-700 hover:bg-slate-50 rounded-xl font-ui text-sm">Techniques</a>
+        <a href="{{ '/ingredients/' | relative_url }}" class="block px-4 py-2.5 text-slate-700 hover:bg-slate-50 rounded-xl font-ui text-sm">Ingredients</a>
+        <a href="{{ '/regions/' | relative_url }}" class="block px-4 py-2.5 text-slate-700 hover:bg-slate-50 rounded-xl font-ui text-sm">Regions</a>
+        <a href="{{ '/quick/' | relative_url }}" class="block px-4 py-2.5 text-slate-700 hover:bg-slate-50 rounded-xl font-ui text-sm">Quick Answers</a>
+        <a href="{{ '/about/' | relative_url }}" class="block px-4 py-2.5 text-slate-700 hover:bg-slate-50 rounded-xl font-ui text-sm">About</a>
       </div>
     </div>
   </div>
 </header>
 
 <!-- Search Modal -->
-<div id="search-modal" class="hidden fixed inset-0 z-50 bg-warm-900/50 backdrop-blur-sm" onclick="this.classList.add('hidden')">
+<div id="search-modal" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm" onclick="this.classList.add('hidden')">
   <div class="container-narrow mt-20" onclick="event.stopPropagation()">
-    <div class="bg-white rounded-xl shadow-2xl p-4">
-      <div class="flex items-center gap-3 border-b border-warm-200 pb-4">
-        <svg class="w-5 h-5 text-warm-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div class="bg-white rounded-2xl shadow-soft-lg p-5">
+      <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
         </svg>
         <input
           type="search"
           placeholder="Search dishes, techniques, ingredients..."
-          class="flex-1 text-lg outline-none bg-transparent"
+          class="flex-1 text-lg outline-none bg-transparent text-slate-700 placeholder-slate-400"
           autofocus
         >
-        <button onclick="document.getElementById('search-modal').classList.add('hidden')" class="text-warm-400 hover:text-warm-600">
+        <button onclick="document.getElementById('search-modal').classList.add('hidden')" class="text-slate-400 hover:text-slate-600 transition-colors">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
       </div>
       <div class="pt-4">
-        <p class="text-sm text-warm-500">Popular searches:</p>
-        <div class="flex flex-wrap gap-2 mt-2">
-          <a href="{{ '/dishes/italian/lasagna-bolognese/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Lasagna Bolognese</a>
-          <a href="{{ '/dishes/american/southern-mac-cheese/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Mac & Cheese</a>
-          <a href="{{ '/techniques/sauces/bechamel/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Béchamel</a>
-          <a href="{{ '/dishes/greek/pastitsio/' | relative_url }}" class="tag bg-warm-100 text-warm-700 hover:bg-warm-200">Pastitsio</a>
+        <p class="text-sm text-slate-500 font-ui">Popular searches:</p>
+        <div class="flex flex-wrap gap-2 mt-3">
+          <a href="{{ '/dishes/italian/lasagna-bolognese/' | relative_url }}" class="tag-region">Lasagna Bolognese</a>
+          <a href="{{ '/dishes/american/southern-mac-cheese/' | relative_url }}" class="tag-region">Mac & Cheese</a>
+          <a href="{{ '/techniques/sauces/bechamel/' | relative_url }}" class="tag-region">Béchamel</a>
+          <a href="{{ '/dishes/greek/pastitsio/' | relative_url }}" class="tag-region">Pastitsio</a>
         </div>
       </div>
     </div>

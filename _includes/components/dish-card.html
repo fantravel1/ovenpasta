@@ -15,7 +15,7 @@ Usage: {% include components/dish-card.html dish=dish %}
         decoding="async"
       >
       {% else %}
-      <div class="w-full h-full bg-gradient-to-br from-tomato-200 to-cheese-200 flex items-center justify-center">
+      <div class="w-full h-full bg-gradient-to-br from-terracotta-100 to-gold-100 flex items-center justify-center">
         <span class="text-4xl">🍝</span>
       </div>
       {% endif %}
@@ -32,39 +32,39 @@ Usage: {% include components/dish-card.html dish=dish %}
       {% endif %}
 
       <!-- Title -->
-      <h3 class="font-display text-lg font-semibold text-warm-900 group-hover:text-tomato-600 transition-colors">
+      <h3 class="font-display text-lg text-slate-900 group-hover:text-terracotta-600 transition-colors">
         {{ include.dish.title }}
       </h3>
 
       <!-- Description -->
       {% if include.dish.description %}
-      <p class="text-sm text-warm-600 line-clamp-2">
+      <p class="text-sm text-slate-500 line-clamp-2">
         {{ include.dish.description }}
       </p>
       {% endif %}
 
       <!-- Meta -->
-      <div class="flex items-center gap-3 text-xs text-warm-500 mt-2">
+      <div class="flex items-center gap-3 text-xs text-slate-400 mt-2">
         {% if include.dish.total_time %}
-        <span class="flex items-center gap-1">
+        <span class="flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           {{ include.dish.total_time }} min
         </span>
         {% elsif include.dish.cook_time %}
-        <span class="flex items-center gap-1">
+        <span class="flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           {{ include.dish.cook_time }} min
         </span>
         {% endif %}
         {% if include.dish.difficulty %}
-        <span class="flex items-center gap-1 capitalize">
+        <span class="flex items-center gap-1.5 capitalize">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
           {{ include.dish.difficulty }}
         </span>
         {% endif %}
         {% if include.dish.rating %}
         <span class="flex items-center gap-1">
-          <svg class="w-3.5 h-3.5 text-cheese-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-3.5 h-3.5 text-gold-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
           {{ include.dish.rating }}
         </span>
         {% endif %}

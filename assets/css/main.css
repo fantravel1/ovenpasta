@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base Styles */
+/* Modern Base Styles */
 @layer base {
   html {
     @apply scroll-smooth;
@@ -11,87 +11,104 @@
   }
 
   body {
-    @apply bg-warm-50 text-warm-800 font-body;
+    @apply bg-slate-50 text-slate-700 font-body leading-relaxed;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-semibold text-warm-900;
+    @apply font-display font-normal text-slate-900 tracking-tight;
   }
 
   h1 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
+    @apply text-4xl md:text-5xl lg:text-6xl;
   }
 
   h2 {
-    @apply text-2xl md:text-3xl;
+    @apply text-3xl md:text-4xl;
   }
 
   h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
     @apply text-xl md:text-2xl;
   }
 
   a {
-    @apply text-tomato-600 hover:text-tomato-700 transition-colors;
+    @apply text-terracotta-600 hover:text-terracotta-700 transition-colors duration-200;
   }
 
-  /* Better focus styles for accessibility */
+  /* Modern focus styles */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-tomato-500;
+    @apply outline-none ring-2 ring-terracotta-500 ring-offset-2 ring-offset-slate-50;
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-terracotta-100 text-terracotta-900;
   }
 }
 
-/* Component Styles */
+/* Modern Component Styles */
 @layer components {
-  /* Container */
+  /* Containers */
   .container-narrow {
-    @apply max-w-3xl mx-auto px-4 sm:px-6;
+    @apply max-w-3xl mx-auto px-5 sm:px-8;
   }
 
   .container-wide {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-12;
   }
 
-  /* Buttons */
+  /* Modern Buttons */
   .btn {
-    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-ui font-medium transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-ui font-medium text-sm transition-all duration-200 ease-out;
   }
 
   .btn-primary {
-    @apply btn bg-tomato-600 text-white hover:bg-tomato-700 active:bg-tomato-800;
+    @apply btn bg-slate-900 text-white hover:bg-slate-800 active:scale-[0.98] shadow-soft hover:shadow-soft-lg;
   }
 
   .btn-secondary {
-    @apply btn bg-cheese-400 text-warm-900 hover:bg-cheese-500 active:bg-cheese-600;
+    @apply btn bg-terracotta-500 text-white hover:bg-terracotta-600 active:scale-[0.98];
   }
 
   .btn-outline {
-    @apply btn border-2 border-tomato-600 text-tomato-600 hover:bg-tomato-50 active:bg-tomato-100;
+    @apply btn border border-slate-300 text-slate-700 hover:border-slate-400 hover:bg-slate-50 active:bg-slate-100;
   }
 
   .btn-ghost {
-    @apply btn text-warm-600 hover:bg-warm-100 active:bg-warm-200;
+    @apply btn text-slate-600 hover:bg-slate-100 active:bg-slate-200;
   }
 
-  /* Cards */
+  /* Modern Cards */
   .card {
-    @apply bg-white rounded-xl shadow-sm border border-warm-200 overflow-hidden transition-shadow hover:shadow-md;
+    @apply bg-white rounded-2xl border border-slate-200/60 overflow-hidden transition-all duration-300 ease-out;
+  }
+
+  .card:hover {
+    @apply shadow-soft border-slate-200;
   }
 
   .card-elevated {
-    @apply card shadow-md hover:shadow-lg;
+    @apply card shadow-soft hover:shadow-soft-lg;
   }
 
-  /* Dish Card - Note: add 'group' class in HTML for hover effects */
+  /* Modern Dish Card */
   .dish-card {
     @apply card cursor-pointer;
   }
 
+  .dish-card:hover {
+    @apply shadow-soft-lg -translate-y-1;
+  }
+
   .dish-card-image {
-    @apply aspect-[4/3] overflow-hidden;
+    @apply aspect-[4/3] overflow-hidden bg-slate-100;
   }
 
   .dish-card-image img {
-    @apply w-full h-full object-cover transition-transform duration-300;
+    @apply w-full h-full object-cover transition-transform duration-500 ease-out;
   }
 
   .dish-card:hover .dish-card-image img {
@@ -99,187 +116,214 @@
   }
 
   .dish-card-content {
-    @apply p-4 space-y-2;
+    @apply p-5 space-y-3;
   }
 
-  /* Tags/Badges */
+  /* Modern Tags/Pills */
   .tag {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-ui font-medium;
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-ui font-medium tracking-wide transition-colors duration-200;
   }
 
   .tag-region {
-    @apply tag bg-tomato-100 text-tomato-700;
+    @apply tag bg-slate-100 text-slate-600 hover:bg-slate-200;
   }
 
   .tag-difficulty {
-    @apply tag bg-cheese-100 text-cheese-800;
+    @apply tag bg-gold-100 text-gold-800;
   }
 
   .tag-vegetarian {
-    @apply tag bg-green-100 text-green-700;
+    @apply tag bg-emerald-50 text-emerald-700;
   }
 
   .tag-time {
-    @apply tag bg-warm-100 text-warm-700;
+    @apply tag bg-slate-100 text-slate-600;
   }
 
-  /* Quick Answer Box */
+  /* Modern Quick Answer Box */
   .quick-answer {
-    @apply bg-cheese-50 border-l-4 border-cheese-400 rounded-r-xl p-4 my-6;
+    @apply bg-gradient-to-br from-gold-50 to-white border border-gold-200/60 rounded-2xl p-6 my-8;
   }
 
   .quick-answer-title {
-    @apply font-display text-lg font-bold text-warm-900 mb-2 flex items-center gap-2;
+    @apply font-display text-xl text-slate-900 mb-3 flex items-center gap-3;
   }
 
   .quick-answer-content {
-    @apply text-warm-700;
+    @apply text-slate-600 leading-relaxed;
   }
 
   .quick-answer-content strong {
-    @apply text-warm-900;
+    @apply text-slate-800 font-medium;
   }
 
   /* Chef Secret Callout */
   .chef-secret {
-    @apply bg-gradient-to-r from-tomato-50 to-cheese-50 border border-tomato-200 rounded-xl p-4 my-6;
+    @apply bg-gradient-to-br from-terracotta-50 to-white border border-terracotta-200/60 rounded-2xl p-6 my-8;
   }
 
-  /* Navigation */
+  /* Modern Navigation */
   .nav-link {
-    @apply font-ui text-sm font-medium text-warm-600 hover:text-tomato-600 transition-colors;
+    @apply font-ui text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors duration-200 relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-terracotta-500 transition-all duration-200;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
   }
 
   .nav-link-active {
-    @apply nav-link text-tomato-600;
+    @apply nav-link text-slate-900;
   }
 
-  /* Mobile Nav */
+  .nav-link-active::after {
+    @apply w-full;
+  }
+
+  /* Modern Mobile Nav */
   .mobile-nav {
-    @apply fixed bottom-0 left-0 right-0 bg-white border-t border-warm-200 z-50 md:hidden;
+    @apply fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-xl border-t border-slate-200/60 z-50 md:hidden;
   }
 
   .mobile-nav-item {
-    @apply flex flex-col items-center justify-center py-2 px-3 text-warm-500 hover:text-tomato-600;
+    @apply flex flex-col items-center justify-center py-2.5 px-4 text-slate-500 hover:text-terracotta-600 transition-colors duration-200;
   }
 
   .mobile-nav-item-active {
-    @apply mobile-nav-item text-tomato-600;
+    @apply mobile-nav-item text-terracotta-600;
   }
 
   /* Recipe Meta */
   .recipe-meta {
-    @apply flex flex-wrap gap-4 text-sm text-warm-600;
+    @apply flex flex-wrap gap-6 text-sm text-slate-500;
   }
 
   .recipe-meta-item {
-    @apply flex items-center gap-1.5;
+    @apply flex items-center gap-2;
   }
 
-  /* Breadcrumbs */
+  /* Modern Breadcrumbs */
   .breadcrumbs {
-    @apply flex items-center flex-wrap gap-1.5 text-sm font-ui text-warm-500;
+    @apply flex items-center flex-wrap gap-2 text-sm font-ui text-slate-500;
   }
 
   .breadcrumbs a {
-    @apply text-warm-500 hover:text-tomato-600;
+    @apply text-slate-500 hover:text-terracotta-600;
   }
 
   .breadcrumbs-separator {
-    @apply text-warm-300;
+    @apply text-slate-300;
   }
 
   /* Rating Stars */
   .rating-stars {
-    @apply flex items-center gap-0.5 text-cheese-500;
-  }
-
-  /* Print Button */
-  .print-button {
-    @apply btn-ghost text-sm;
+    @apply flex items-center gap-0.5 text-gold-500;
   }
 
   /* Table of Contents */
   .toc {
-    @apply bg-warm-100 rounded-xl p-4 my-6;
+    @apply bg-slate-50 border border-slate-200/60 rounded-2xl p-6 my-8;
   }
 
   .toc-title {
-    @apply font-ui font-semibold text-warm-900 mb-3;
+    @apply font-display text-lg text-slate-900 mb-4;
   }
 
   .toc-list {
-    @apply space-y-2 text-sm;
+    @apply space-y-2.5 text-sm;
   }
 
   .toc-link {
-    @apply text-warm-600 hover:text-tomato-600;
+    @apply text-slate-600 hover:text-terracotta-600 transition-colors;
   }
 
   /* Recipe Instructions */
   .recipe-step {
-    @apply flex gap-4 mb-6;
+    @apply flex gap-5 mb-8;
   }
 
   .recipe-step-number {
-    @apply flex-shrink-0 w-8 h-8 rounded-full bg-tomato-600 text-white font-ui font-bold flex items-center justify-center text-sm;
+    @apply flex-shrink-0 w-10 h-10 rounded-full bg-slate-900 text-white font-ui font-semibold flex items-center justify-center text-sm;
   }
 
   .recipe-step-content {
-    @apply flex-1 pt-1;
+    @apply flex-1 pt-2 text-slate-600;
   }
 
   /* Ingredient List */
   .ingredient-list {
-    @apply space-y-2;
+    @apply space-y-0;
   }
 
   .ingredient-item {
-    @apply flex items-start gap-3 py-2 border-b border-warm-100 last:border-0;
+    @apply flex items-start gap-4 py-3 border-b border-slate-100 last:border-0;
   }
 
   .ingredient-checkbox {
-    @apply mt-1 h-4 w-4 rounded border-warm-300 text-tomato-600 focus:ring-tomato-500;
+    @apply mt-0.5 h-5 w-5 rounded border-slate-300 text-terracotta-600 focus:ring-terracotta-500;
   }
 
-  /* Hero Section */
+  /* Modern Hero Section */
   .hero {
     @apply relative overflow-hidden;
   }
 
   .hero-gradient {
-    @apply absolute inset-0 bg-gradient-to-b from-warm-900/60 via-warm-900/40 to-warm-900/80;
+    @apply absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/50 to-slate-900/80;
   }
 
   /* Section Headers */
   .section-header {
-    @apply mb-8;
+    @apply mb-12;
   }
 
   .section-title {
-    @apply text-2xl md:text-3xl font-display font-bold text-warm-900;
+    @apply text-3xl md:text-4xl font-display text-slate-900;
   }
 
   .section-subtitle {
-    @apply mt-2 text-warm-600;
+    @apply mt-4 text-lg text-slate-500 max-w-2xl;
   }
 
-  /* Grid Layouts */
+  /* Modern Grid Layouts */
   .dish-grid {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8;
   }
 
   .technique-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
   }
 
-  /* Footer */
+  /* Modern Footer */
   .footer {
-    @apply bg-warm-900 text-warm-300;
+    @apply bg-slate-900 text-slate-400;
   }
 
   .footer-link {
-    @apply text-warm-400 hover:text-white transition-colors;
+    @apply text-slate-400 hover:text-white transition-colors duration-200;
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-slate-200;
+  }
+
+  /* Modern Input */
+  .input {
+    @apply w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:border-terracotta-500 focus:ring-2 focus:ring-terracotta-500/20 transition-all duration-200;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-slate-100 text-slate-700;
+  }
+
+  .badge-accent {
+    @apply badge bg-terracotta-100 text-terracotta-700;
   }
 }
 
@@ -319,6 +363,16 @@
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom, 1rem);
   }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-terracotta-600 to-gold-600;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl;
+  }
 }
 
 /* Print Styles */
@@ -328,8 +382,9 @@
   }
 
   body {
-    font-size: 12pt;
-    line-height: 1.5;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #000;
   }
 
   .recipe-step-number {
@@ -345,6 +400,6 @@
 
   .card {
     box-shadow: none;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
   }
 }
